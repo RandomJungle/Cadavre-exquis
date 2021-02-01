@@ -22,6 +22,8 @@ Pycharm / IDEA files
 .idea/
 .idea/*
 .idea
+idea
+idea/
 
 # Jupyter Notebook
 .ipynb_checkpoints
