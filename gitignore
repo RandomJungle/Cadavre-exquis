@@ -20,6 +20,8 @@ MANIFEST
 
 Pycharm / IDEA files
 .idea/
+.idea/*
+.idea
 
 # Jupyter Notebook
 .ipynb_checkpoints
