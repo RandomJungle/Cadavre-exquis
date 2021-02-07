@@ -1,14 +1,21 @@
 [tool.poetry]
 name = "cadavre exquis"
 version = "0.1.0"
-description = "Experimental project of cadavre exquis, a form of joint creation that can be done via drawing or via writing. The project aims at creating an interface where human and artificial agent can participate together at creating something new."
+description = ""
 authors = ["Juliette <bourquinjuliette@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
+numpy = "1.19.2"
+tensorflow = "^2.4.1"
+typer = "^0.3.2"
+nltk = "^3.5"
+pydot = "^1.4.1"
+Keras = "^2.4.3"
 
 [tool.poetry.dev-dependencies]
+pytest = "^6.2.2"
 
 [build-system]
-requires = ["poetry>=0.12"]
-build-backend = "poetry.masonry.api"
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
