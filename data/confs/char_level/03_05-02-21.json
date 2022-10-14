@@ -1,0 +1,34 @@
+{
+  "description": [
+    "building up from the second iteration of the model, and given it had executed properly, I kept all",
+    "its parameters but increased the number of epochs to train on to 100. I also incorporated all the data",
+    "from the gutenberg corpus, whereas prior I was only training on 2 books, one for train and one for",
+    "validation. the full gutenberg data equals to 11793318 chars."
+  ],
+  "sequence_length": 50,
+  "step": 10,
+  "lstm_units": 128,
+  "loss": "categorical_crossentropy",
+  "epochs": 100,
+  "model_path": "/home/juliette/Projects/Cadavre exquis/data/models/char_level/03_05-02-21",
+  "char2int_encoder_path": "/home/juliette/Projects/Cadavre exquis/data/char_encoders/gutenberg/char2int.json",
+  "int2char_encoder_path": "/home/juliette/Projects/Cadavre exquis/data/char_encoders/gutenberg/int2char.json",
+  "train_set": [
+    "austen-emma.txt",
+    "austen-sense.txt",
+    "bryant-stories.txt",
+    "burgess-busterbrown.txt",
+    "carroll-alice.txt",
+    "chesterton-ball.txt",
+    "chesterton-thursday.txt",
+    "edgeworth-parents.txt",
+    "melville-moby_dick.txt",
+    "milton-paradise.txt"
+  ],
+  "validation_set": [
+    "austen-persuasion.txt",
+    "chesterton-brown.txt"
+  ],
+  "batch_size": 100,
+  "encoding_level": "char"
+}

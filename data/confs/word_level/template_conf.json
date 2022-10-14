@@ -1,0 +1,13 @@
+{
+  "description": "a small description of that specific training session",
+  "sequence_length": 60,
+  "step": 5,
+  "lstm_units": 128,
+  "loss": "categorical_crossentropy",
+  "epochs": 5,
+  "model_path": "path/to/model/saving/dir",
+  "str2int_encoder_path": "path/to/str2int/encoder",
+  "int2str_encoder_path": "path/to/int2str/encoder",
+  "validation_set": ["list", "of", "file_ids", "to", "keep", "as", "validation", "set"],
+  "encoding_level": "char"
+}

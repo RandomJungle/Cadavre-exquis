@@ -1,0 +1,19 @@
+{
+  "description": [
+    "The first draft of the model. I had made a mistake where I presented as target labels, ",
+    "not the character immediately following the sequences, but the second one inside the sequence. ",
+    "As a result, this cause the model to learn to repeat itself, infinitely :("
+  ],
+  "sequence_length": 60,
+  "step": 20,
+  "lstm_units": 128,
+  "loss": "categorical_crossentropy",
+  "epochs": 50,
+  "model_path": "/home/juliette/Projects/Cadavre exquis/data/models/char_level/01_02-02-21",
+  "char2int_encoder_path": "/home/juliette/Projects/Cadavre exquis/data/char_encoders/gutenberg/char2int.json",
+  "int2char_encoder_path": "/home/juliette/Projects/Cadavre exquis/data/char_encoders/gutenberg/int2char.json",
+  "train_set": ["austen-emma.txt"],
+  "validation_set": ["austen-sense.txt"],
+  "batch_size": 50,
+  "encoding_level": "char"
+}

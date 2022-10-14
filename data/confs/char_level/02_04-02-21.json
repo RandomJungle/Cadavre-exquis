@@ -1,0 +1,19 @@
+{
+  "description": [
+    "second iteration of the model, I augmented a bit the batch size, ",
+    "but reduced the sequence length and used more of them since I reduced the steps between them. ",
+    "I trained this version of the model for 40 epochs to make sure everything was working properly"
+  ],
+  "sequence_length": 50,
+  "step": 10,
+  "lstm_units": 128,
+  "loss": "categorical_crossentropy",
+  "epochs": 40,
+  "model_path": "/home/juliette/Projects/Cadavre exquis/data/models/char_level/02_04-02-21",
+  "char2int_encoder_path": "/home/juliette/Projects/Cadavre exquis/data/char_encoders/gutenberg/char2int.json",
+  "int2char_encoder_path": "/home/juliette/Projects/Cadavre exquis/data/char_encoders/gutenberg/int2char.json",
+  "train_set": ["austen-emma.txt"],
+  "validation_set": ["austen-sense.txt"],
+  "batch_size": 100,
+  "encoding_level": "char"
+}

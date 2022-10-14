@@ -1,0 +1,19 @@
+{
+  "description": [
+    "First training of that new model version that trains on words instead of chars. ",
+    "So the entry vectors should be much, much longer, which is why I think I will reduce drastically ",
+    "the other parameters to gain a bit on performance. Otherwise everything will explode \uD83D\uDCA5 \uD83E\uDD2F",
+    "And I'm only training for 10 epoch as a strating point"
+  ],
+  "sequence_length": 10,
+  "step": 500,
+  "lstm_units": 128,
+  "loss": "categorical_crossentropy",
+  "epochs": 10,
+  "model_path": "/home/juliette/Projects/Cadavre-exquis/data/models/word_level/01_07-02-21",
+  "str2int_encoder_path": "/home/juliette/Projects/Cadavre-exquis/data/encoders/word_encoders/fairytales/word2int.json",
+  "int2str_encoder_path": "/home/juliette/Projects/Cadavre-exquis/data/encoders/word_encoders/fairytales/int2word.json",
+  "text_path": "/home/juliette/Projects/Cadavre-exquis/data/text_samples/fairy_tales.txt",
+  "batch_size": 3,
+  "encoding_level": "word"
+}

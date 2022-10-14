@@ -1,4 +1,5 @@
 {
+  "description": "a small description of that specific training session",
   "sequence_length": 60,
   "step": 5,
   "lstm_units": 128,
@@ -7,5 +8,6 @@
   "model_path": "path/to/model/saving/dir",
   "char2int_encoder_path": "path/to/char2int/encoder",
   "int2char_encoder_path": "path/to/int2char/encoder",
-  "validation_set": ["list", "of", "file_ids", "to", "keep", "as", "validation", "set"]
+  "validation_set": ["list", "of", "file_ids", "to", "keep", "as", "validation", "set"],
+  "encoding_level": "char"
 }

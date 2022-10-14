@@ -1,0 +1,23 @@
+{
+  "description": [
+    "After success in training the previous model to generate characters, it seemed to me that the model output",
+    "looked a little bit too much like british poetry-ish literature, where I would want something more narrative",
+    "So I found a dataset of fairy tales on kaggle https://www.kaggle.com/cuddlefish/fairy-tales and I intend",
+    "to retrain on it. There will be no train val explicit split, I will leave that to keras this time. I will",
+    "train for another 100 epoch, but I will make the sequence length a bit longer, 75, to see what happens",
+    "So I counted and it represents 12489667 chars. I got a 137 sigkill error so I think I might need to ease",
+    "down a bit on the volume ? But it's not that big compared to previous gutenberg. I think the sequence length",
+    "is the key here"
+  ],
+  "sequence_length": 60,
+  "step": 15,
+  "lstm_units": 128,
+  "loss": "categorical_crossentropy",
+  "epochs": 100,
+  "model_path": "/home/juliette/Projects/Cadavre exquis/data/models/char_level/04_06-02-21",
+  "char2int_encoder_path": "/home/juliette/Projects/Cadavre exquis/data/char_encoders/fairytales/char2int.json",
+  "int2char_encoder_path": "/home/juliette/Projects/Cadavre exquis/data/char_encoders/fairytales/int2char.json",
+  "text_path": "/home/juliette/Projects/Cadavre exquis/data/text_samples/fairy_tales.txt",
+  "batch_size": 50,
+  "encoding_level": "char"
+}

@@ -11,16 +11,24 @@ class LSTMModel:
             sequence_length: int,
             step: int,
             lstm_units: int,
-            char_encoder: Dict):
+            text_encoder: Dict):
+        """
+
+        Args:
+            sequence_length:
+            step:
+            lstm_units:
+            text_encoder:
+        """
         self.sequence_length = sequence_length
         self.step = step
         self.lstm_units = lstm_units
-        self.char_encoder = char_encoder
+        self.text_encoder = text_encoder
 
     def build_model(self) -> Model:
 
         # input
-        number_of_classes = len(self.char_encoder.keys())
+        number_of_classes = len(self.text_encoder.keys())
         sequences_input = Input(
             shape=(self.sequence_length, number_of_classes),
             dtype="float32",

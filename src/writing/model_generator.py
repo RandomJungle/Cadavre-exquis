@@ -1,9 +1,10 @@
 import numpy as np
+from nltk import word_tokenize
 
 from tensorflow.python.keras import Model
 from typing import Dict
 
-from writing.char_level_model.encoding import encode_sequences, decode_class_prediction, pad_sequence
+from writing.encoding import encode_sequences, decode_class_prediction, pad_sequence
 
 
 def loop_until_sentence_break(
@@ -33,9 +34,9 @@ def loop_until_sentence_break(
     while next_char not in [".", "!", "?", ";", ":"]:
         predictions = predict_from_model(
             model, input_text + generated_sentence, json_conf, char2int_encoder)
-        next_char = sample_next_char(
+        next_char = sample_next(
             predictions, int2char_encoder, temperature)
-        generated_sentence += next_char
+        generated_sentence += f" {next_char}"
     return generated_sentence
 
 
@@ -56,29 +57,33 @@ def predict_from_model(
     Returns:
         model softmax prediction as array
     """
-    input_encoded = encode_sequences(
-        [input_text[-json_conf.get("sequence_length"):]], char2int_encoder)
+    if json_conf.get("encoding_level") == "word":
+        input_split = [word_tokenize(input_text)[-json_conf.get("sequence_length"):]]
+    else:
+        input_split = [input_text[-json_conf.get("sequence_length"):]]
+    input_encoded = encode_sequences(input_split, char2int_encoder)
     input_padded = pad_sequence(input_encoded, json_conf)
     return model.predict(input_padded)
 
 
-def sample_next_char(predictions: np.array, int2char_encoder: Dict, temperature: float):
+def sample_next(predictions: np.array, int2str_encoder: Dict, temperature: float):
     """
-    Sample next char from model prediction
+    Sample next str from model prediction
 
     Args:
         predictions: array of softmax class predictions
-        int2char_encoder: dict encoder mapping chars to integers
+        int2str_encoder: dict encoder mapping strs to integers
         temperature: model temperature, 1.0 is adventurous but less confident, and decreasing
             to lower makes the model more confident but also more conservative, and prone to
             repeating itself
 
     Returns:
-        selected next character predicted
+        selected next sample predicted
     """
     predictions = np.asarray(predictions).astype('float64')
     predictions = np.log(predictions) / temperature
     exp_predictions = np.exp(predictions)
     predictions = exp_predictions / np.sum(exp_predictions)
     probas = np.random.multinomial(1, predictions.flatten(), 1)
-    return decode_class_prediction(np.argmax(probas), int2char_encoder)
+    decoded = decode_class_prediction(np.argmax(probas), int2str_encoder)
+    return decoded

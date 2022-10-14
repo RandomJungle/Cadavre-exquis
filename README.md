@@ -1,3 +1,17 @@
+# Context
+
+Cadavres exquis, or Exquisite corpse in english, is a sort of creative game where one participant starts
+by writing a first sentence, or drawing the top part of a picture, then passes on his work, concealed or 
+not, to the next player, who will continue on the story or drawing with his own addition.
+
+The next player input can be all the previous person production, but most of the time it is partially
+hidden, so that only a little piece, or one word, is visible. This method was invented by the surrealist
+movement, and its juxtaposition effect fell into place with their approach to creation and its 
+resonance with the subconscious. 
+
+The name "cadavre exquis" comes from one of the first game played by the surrealists, where they obtained
+the sentence "Le cadavre exquis boira le vin nouveau". 
+
 # Writing models
 
 ## Char-level text generation
@@ -43,14 +57,15 @@ Here is the first input of the functional model I trained. My input is in
 > </span>
 
 Being trained on classic english literature, the model output is interesting, but not so adapted to
-the narrative side I wanted the game to have. I think a key element of this game is when its played
+the narrative side I wanted the game to have. I think a key element of this game is when it is played
 within the context of a story, because then every addition is taking the character into one direction, 
 then another, which can result in an interesting collective building of a story.
 
-So maybe retraining the model on fairytale story is a good option, to leverage that more narrative 
-quality of language.
+The model was retrained, this time on a dataset of fairy tales in english.
 
 ## Word-level text generation
 
 Second version is at word level, trained on a corpus of fairy tales, with the assumption that it would
-take more of a narrative style.
+take more of a narrative style. The creation of word encoders is the same as char encoders, except this 
+time each word gets a corresponding integers, with a total of 38272 unique tokens. The only pre-processing 
+in that first phase is tokenization + lowering all words. 
